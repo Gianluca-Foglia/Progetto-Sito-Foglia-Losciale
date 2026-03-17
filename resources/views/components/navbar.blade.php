@@ -10,6 +10,39 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ route('homepage')}}">Home</a>
                 </li>
+
+                {{-- autenticazione utente --}}
+                @auth
+            
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Ciao, {{ Auth::user()->name }}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"
+                            onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
+                    </li>
+                    <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">@csrf</form>
+                </ul>
+               </li>
+                @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Ciao, utente!
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('login') }}">Accedi</a></li>
+                        <hr class="dropdown-divider">
+                        <li><a class="dropdown-item" href="{{ route('register') }}">Registrati</a></li>
+                    </ul>
+                </li>
+                @endauth
+
+                {{-- fine autenticazione utente --}}
+
+
             </ul>
         </div>
     </div>

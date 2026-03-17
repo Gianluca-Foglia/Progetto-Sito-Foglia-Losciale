@@ -2,7 +2,7 @@
     <div class="container-fluid text-center bg-body-tertiary">
         <div class="row vh-100 justify-content-center align-items-center">
             <div class="col-12">
-                <h1 class="display-4">Dio Mona</h1>
+                <h1 class="display-4">Dio E-commerce</h1>
             </div>
         </div>
     </div>
