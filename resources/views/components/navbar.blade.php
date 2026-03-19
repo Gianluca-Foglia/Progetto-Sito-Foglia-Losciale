@@ -20,6 +20,13 @@
                     Ciao, {{ Auth::user()->name }}
                 </a>
                 <ul class="dropdown-menu">
+
+                    {{-- creazione articolo --}}
+
+                    <li><a class="dropdown-item" href="{{ route('create.article') }}">Crea articolo</a></li>
+
+                     {{-- /// --}}
+
                     <li><a class="dropdown-item" href="#"
                             onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
                     </li>

@@ -6,6 +6,7 @@ use App\Models\Article;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\Category;
 
 class CreateArticleForm extends Component
 {
@@ -29,10 +30,22 @@ class CreateArticleForm extends Component
             'category_id' => $this->category,
             'user_id' => Auth::id()
         ]);
+        $this->cleanForm();
+        session()->flash('success', 'Articolo creato con successo!');
     }
 
     public function render()
     {
-        return view('livewire.create-article-form');
+        $categories = Category::all();
+
+        return view('livewire.create-article-form', compact('categories'));
     }
+
+    protected function cleanForm() {
+    $this->title = '';
+    $this->description = '';
+    $this->price = '';
+    $this->category = '';
 }
+}
+
