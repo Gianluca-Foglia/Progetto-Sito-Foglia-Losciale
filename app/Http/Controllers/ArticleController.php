@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Article;
-// use App\Models\Category;
+
+use App\Models\Category;
 // use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\Middleware;
+use App\Models\Article;
 use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
 class ArticleController extends Controller implements HasMiddleware
 {
@@ -22,28 +23,28 @@ class ArticleController extends Controller implements HasMiddleware
         return view('article.create');
     }
 
-//     public function show(Article $article)
-//     {
-//         return view('article.show', compact('article'));
-//     }
+    public function show(Article $article)
+    {
+        return view('article.show', compact('article'));
+    }
 
 
-//    public function byCategory(Category $category)
-//     {
+   public function byCategory(Category $category)
+    {
 
-//     $articles=$category->articles()->where('is_accepted', true);
+    // $articles=$category->articles()->where('is_accepted', true);
 
-//      return view('article.byCategory', compact('articles','category'));
-//     }
+     return view('article.byCategory', ['articles' => $category->articles, 'category'=>$category]);
+    }
 
 
-//     public function index(){
+    public function index(){
 
-//     $articles=Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(10);
+    $articles=Article::orderBy('created_at', 'desc')->paginate(6);
 
-//     return view('article.index', compact('articles'));
+    return view('article.index', compact('articles'));
 
-//     }
+    }
 
 
 

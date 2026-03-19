@@ -12,3 +12,13 @@ Route::get('/create/article', [ArticleController::class, 'create'])->name('creat
     return view('welcome');
 }); */
 
+
+Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
+
+// rotta parametrica per pagina di dettaglio articolo
+
+Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name('article.show');
+
+// rotta parametrica per le categorie
+
+Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->name('byCategory');
