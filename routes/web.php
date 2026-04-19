@@ -27,3 +27,14 @@ Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->na
 /* rotta parametrica per i Revisor */
 
 Route::get('/revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
+
+// rotte per accettare o rifiutare un articolo da parte del revisore
+
+
+Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
+Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
+
+
+Route::get('/revisor/index', [RevisorController::class, 'index'])
+    ->middleware('isRevisor')
+    ->name('revisor.index');

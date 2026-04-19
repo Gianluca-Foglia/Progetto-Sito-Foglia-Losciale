@@ -10,6 +10,13 @@
                 @endauth
             </div>
 
+            @if (session()->has('errorMessage'))
+                <div class="col-6 alert alert-danger text-center mt-4 shadow rounded">
+                    {{ session('errorMessage') }}
+                </div>
+                
+            @endif
+
 
 
             <div class="row height-custom justify-content-center align-items-center py-5">
