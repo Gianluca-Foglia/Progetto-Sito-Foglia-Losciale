@@ -15,8 +15,8 @@
         <h2>Ecco i suoi dati:</h2>
         <p>Nome: {{$user->name}}</p>
         <p>Email: {{$user->email}}</p>
-        <p>Se vuoi renderl* revisor, clicca qui:</p>
-        <a href="{{ route('make.revisor', compact('user')) }}">Rendi Revisor</a>
+        <p>Se vuoi renderl* revisore, clicca qui:</p>
+        <a href="{{ route('make.revisor', compact('user')) }}">Rendi Revisore</a>
     </div>
 
 </body>

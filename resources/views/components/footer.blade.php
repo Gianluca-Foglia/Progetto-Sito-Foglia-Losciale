@@ -28,6 +28,14 @@
       <a href="" class="me-4 text-reset">
         <i class="fab fa-github"></i>
       </a>
+
+      <div class="col-md-5 offset-md-1 mb-3 text-center">
+       <h5>Vuoi diventare Revisore?</h5>
+       <p>Cliccando il bottone sottostante farai richiesta al nostro admin</p>
+
+       <a href="{{ route('become.revisor') }}" class="btn btn-success">Diventa Revisore</a>
+      </div>
+    
     </div>
     <!-- Right -->
   </section>
